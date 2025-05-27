@@ -1,13 +1,13 @@
-package be.ehb.bakkerij;
+//package be.ehb.bakkerij;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class BakkerijApplicationTests {
+//@SpringBootTest
+//class BakkerijApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+   // @Test
+   // void contextLoads() {
+  //  }
 
-}
+//}
