@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Evenement Details</title>
+    <link rel="stylesheet" href="/css/tailwind.css">
 </head>
-<body>
+<body class="bg-yellow-50 text-gray-800">
+
+<header class="bg-red-800 text-white p-4">
+    <nav class="flex gap-6 max-w-4xl mx-auto">
+        <a href="/" class="font-bold hover:underline">Pâtisserie Gilis</a>
+        <a href="/new" class="hover:underline">Nieuw evenement</a>
+        <a href="/about" class="hover:underline">Over ons</a>
+    </nav>
+</header>
+
+<main class="max-w-2xl mx-auto p-6 bg-white shadow-md mt-6 rounded">
+    <h1 class="text-2xl font-bold mb-4 text-red-800" th:text="${event.titel}">Titel</h1>
+
+    <p><strong>Omschrijving:</strong> <span th:text="${event.omschrijving}"></span></p>
+    <p><strong>Datum en tijd:</strong> <span th:text="${event.tijdstip}"></span></p>
+    <p><strong>Organisatie:</strong> <span th:text="${event.organisatie}"></span></p>
+    <p><strong>Contact:</strong> <span th:text="${event.email}"></span></p>
+    <p><strong>Locatie:</strong> <span th:text="${event.locatie.naam}"></span> - <span th:text="${event.locatie.adres}"></span></p>
+    <p><strong>Capaciteit:</strong> <span th:text="${event.locatie.capaciteit}"></span> personen</p>
+
+    <div class="mt-6">
+        <a href="/" class="text-red-700 hover:underline">Terug naar overzicht</a>
+    </div>
+</main>
+
+<footer class="bg-gray-100 text-center text-sm p-4 mt-10">
+    &copy; 2025 Pâtisserie Gilis - Chaussée de Ninove 425, 1070 Anderlecht - Tel: 02 410 95 23
+</footer>
 
 </body>
 </html>

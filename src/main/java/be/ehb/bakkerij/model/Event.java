@@ -1,10 +1,10 @@
 package be.ehb.bakkerij.model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,27 +14,29 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotNull(message = "Datum en tijd zijn verplicht")
+    private LocalDateTime tijdstip;
+
+    @NotBlank(message = "Titel is verplicht")
+    @Size(max = 100, message = "Titel mag maximaal 100 tekens bevatten")
     private String titel;
 
-    @NotBlank
+    @NotBlank(message = "Omschrijving is verplicht")
+    @Column(columnDefinition = "TEXT")
     private String omschrijving;
 
-    @NotBlank
+    @NotBlank(message = "Organisatie is verplicht")
     private String organisatie;
 
-    @Email
-    @NotBlank
+    @NotBlank(message = "E-mailadres is verplicht")
+    @Email(message = "Geef een geldig e-mailadres op")
     private String email;
-
-    @NotNull
-    private LocalDateTime tijdstip;
 
     @ManyToOne
     @JoinColumn(name = "location_id")
-    private Location location;
+    @NotNull(message = "Locatie is verplicht")
+    private Location locatie;
 
-    // Getters en setters
 
     public Long getId() {
         return id;
@@ -42,6 +44,14 @@ public class Event {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public LocalDateTime getTijdstip() {
+        return tijdstip;
+    }
+
+    public void setTijdstip(LocalDateTime tijdstip) {
+        this.tijdstip = tijdstip;
     }
 
     public String getTitel() {
@@ -76,19 +86,11 @@ public class Event {
         this.email = email;
     }
 
-    public LocalDateTime getTijdstip() {
-        return tijdstip;
+    public Location getLocatie() {
+        return locatie;
     }
 
-    public void setTijdstip(LocalDateTime tijdstip) {
-        this.tijdstip = tijdstip;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setLocatie(Location locatie) {
+        this.locatie = locatie;
     }
 }

@@ -8,11 +8,12 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 @Controller
-@RequestMapping("/events")
 public class EventController {
 
     @Autowired
@@ -21,17 +22,35 @@ public class EventController {
     @Autowired
     private LocationRepository locationRepository;
 
-    @GetMapping
-    public String showEventForm(Model model) {
+    @GetMapping("/")
+    public String showIndex(Model model) {
+        model.addAttribute("events", eventRepository.findTop10ByOrderByTijdstipDesc());
+        return "index";
+    }
+
+    @GetMapping("/new")
+    public String showNewEventForm(Model model) {
         model.addAttribute("event", new Event());
-        model.addAttribute("locations", locationRepository.findAll());
-        return "event-form";
+        model.addAttribute("locaties", locationRepository.findAll());
+        return "new";
     }
 
-    @PostMapping
-    public String submitEventForm(@ModelAttribute @Valid Event event) {
+    @PostMapping("/new")
+    public String submitNewEvent(@Valid @ModelAttribute("event") Event event,
+                                 BindingResult bindingResult,
+                                 Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("locaties", locationRepository.findAll());
+            return "new";
+        }
         eventRepository.save(event);
-        return "redirect:/events";
+        return "redirect:/";
     }
 
+    @GetMapping("/details/{id}")
+    public String showEventDetails(@PathVariable Long id, Model model) {
+        Event event = eventRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Ongeldig ID: " + id));
+        model.addAttribute("event", event);
+        return "details";
+    }
 }
