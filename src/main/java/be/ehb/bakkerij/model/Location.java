@@ -5,15 +5,13 @@ import jakarta.persistence.*;
 @Entity
 public class Location {
 
-    @Entity
-    public class Location {
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-        private String naam;
-        private String adres;
-        private int capaciteit;
+    private String naam;
+    private String adres;
+    private int capaciteit;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

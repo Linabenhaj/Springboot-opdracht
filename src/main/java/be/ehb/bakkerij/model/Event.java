@@ -1,10 +1,15 @@
 package be.ehb.bakkerij.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import java.time.LocalDateTime;
+
+import jakarta.validation.constraints.*;
+import jakarta.persistence.*;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,29 +19,26 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "Datum en tijd zijn verplicht")
-    private LocalDateTime tijdstip;
-
     @NotBlank(message = "Titel is verplicht")
-    @Size(max = 100, message = "Titel mag maximaal 100 tekens bevatten")
     private String titel;
 
     @NotBlank(message = "Omschrijving is verplicht")
-    @Column(columnDefinition = "TEXT")
     private String omschrijving;
 
     @NotBlank(message = "Organisatie is verplicht")
     private String organisatie;
 
-    @NotBlank(message = "E-mailadres is verplicht")
-    @Email(message = "Geef een geldig e-mailadres op")
+    @NotBlank(message = "Email is verplicht")
+    @Email(message = "Email moet geldig zijn")
     private String email;
 
+    @NotNull(message = "Tijdstip is verplicht")
+    private LocalDateTime tijdstip;
+
     @ManyToOne
-    @JoinColumn(name = "location_id")
+    @JoinColumn(name = "locatie_id")
     @NotNull(message = "Locatie is verplicht")
     private Location locatie;
-
 
     public Long getId() {
         return id;
@@ -44,14 +46,6 @@ public class Event {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public LocalDateTime getTijdstip() {
-        return tijdstip;
-    }
-
-    public void setTijdstip(LocalDateTime tijdstip) {
-        this.tijdstip = tijdstip;
     }
 
     public String getTitel() {
@@ -62,14 +56,6 @@ public class Event {
         this.titel = titel;
     }
 
-    public String getOmschrijving() {
-        return omschrijving;
-    }
-
-    public void setOmschrijving(String omschrijving) {
-        this.omschrijving = omschrijving;
-    }
-
     public String getOrganisatie() {
         return organisatie;
     }
@@ -78,19 +64,11 @@ public class Event {
         this.organisatie = organisatie;
     }
 
-    public String getEmail() {
-        return email;
+    public LocalDateTime getTijdstip() {
+        return tijdstip;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Location getLocatie() {
-        return locatie;
-    }
-
-    public void setLocatie(Location locatie) {
-        this.locatie = locatie;
+    public void setTijdstip(LocalDateTime tijdstip) {
+        this.tijdstip = tijdstip;
     }
 }

@@ -17,7 +17,7 @@ public class ProductController {
 
     @GetMapping
     public List<String> getAllProducts() {
-        // Dit is een dummy-lijst met producten. Later kun je dit vervangen door echte data uit de database.
+
         return List.of("Brood", "Croissant", "Cake");
     }
 }

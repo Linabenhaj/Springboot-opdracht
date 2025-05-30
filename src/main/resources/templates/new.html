@@ -2,67 +2,67 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Nieuw evenement – Pâtisserie Gilis</title>
+    <title>Nieuw Evenement – Pâtisserie Gilis</title>
     <link rel="stylesheet" href="/css/tailwind.css">
 </head>
-<body class="bg-yellow-50 text-gray-800">
+<body class="bg-yellow-50 min-h-screen flex flex-col">
 
-<header class="bg-red-800 text-white p-4">
-    <nav class="flex gap-6 max-w-4xl mx-auto">
-        <a href="/" class="font-bold hover:underline">Pâtisserie Gilis</a>
-        <a href="/new" class="hover:underline">Nieuw evenement</a>
-        <a href="/about" class="hover:underline">Over ons</a>
-    </nav>
+<header class="bg-yellow-100 shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <a href="/" class="text-2xl font-extrabold text-red-800">Pâtisserie Gilis</a>
+        <nav class="flex space-x-8 text-lg font-medium">
+            <a href="/new" class="text-gray-800 hover:text-red-700 transition">Nieuw evenement</a>
+            <a href="/about" class="text-gray-800 hover:text-red-700 transition">Over ons</a>
+        </nav>
+    </div>
 </header>
 
-<main class="max-w-2xl mx-auto p-6 bg-white shadow-md mt-6 rounded">
-    <h1 class="text-2xl font-bold mb-4 text-red-800">Nieuw Evenement</h1>
+<main class="flex-grow container mx-auto px-6 py-12">
+    <div class="bg-white p-8 shadow-xl rounded-xl max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold text-red-800 mb-8 text-center">Nieuw Evenement Toevoegen</h1>
 
-    <form action="/new" method="post" th:object="${event}" class="space-y-4">
-        <div>
-            <label>Titel</label>
-            <input type="text" name="titel" th:value="*{titel}" class="w-full border p-2 rounded">
-            <p th:if="${#fields.hasErrors('titel')}" th:errors="*{titel}" class="text-red-600 text-sm"></p>
-        </div>
+        <form action="/save" method="post" class="space-y-6">
+            <div>
+                <label for="titel" class="block text-gray-700 font-semibold">Titel</label>
+                <input type="text" name="titel" id="titel" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
+            </div>
 
-        <div>
-            <label>Omschrijving</label>
-            <textarea name="omschrijving" th:text="*{omschrijving}" class="w-full border p-2 rounded"></textarea>
-            <p th:if="${#fields.hasErrors('omschrijving')}" th:errors="*{omschrijving}" class="text-red-600 text-sm"></p>
-        </div>
+            <div>
+                <label for="omschrijving" class="block text-gray-700 font-semibold">Omschrijving</label>
+                <textarea name="omschrijving" id="omschrijving" required rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700"></textarea>
+            </div>
 
-        <div>
-            <label>Datum en tijd</label>
-            <input type="datetime-local" name="tijdstip" th:value="*{tijdstip}" class="w-full border p-2 rounded">
-            <p th:if="${#fields.hasErrors('tijdstip')}" th:errors="*{tijdstip}" class="text-red-600 text-sm"></p>
-        </div>
+            <div>
+                <label for="organisatie" class="block text-gray-700 font-semibold">Organisatie</label>
+                <input type="text" name="organisatie" id="organisatie" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
+            </div>
 
-        <div>
-            <label>Organisatie</label>
-            <input type="text" name="organisatie" th:value="*{organisatie}" class="w-full border p-2 rounded">
-            <p th:if="${#fields.hasErrors('organisatie')}" th:errors="*{organisatie}" class="text-red-600 text-sm"></p>
-        </div>
+            <div>
+                <label for="email" class="block text-gray-700 font-semibold">E-mail</label>
+                <input type="email" name="email" id="email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
+            </div>
 
-        <div>
-            <label>Contactpersoon e-mail</label>
-            <input type="email" name="email" th:value="*{email}" class="w-full border p-2 rounded">
-            <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-red-600 text-sm"></p>
-        </div>
+            <div>
+                <label for="tijdstip" class="block text-gray-700 font-semibold">Tijdstip</label>
+                <input type="datetime-local" name="tijdstip" id="tijdstip" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
+            </div>
 
-        <div>
-            <label>Locatie</label>
-            <select name="locatie.id" class="w-full border p-2 rounded">
-                <option th:each="loc : ${locaties}" th:value="${loc.id}" th:text="${loc.naam}"></option>
-            </select>
-            <p th:if="${#fields.hasErrors('locatie')}" th:errors="*{locatie}" class="text-red-600 text-sm"></p>
-        </div>
+            <div>
+                <label for="locatieid" class="block text-gray-700 font-semibold">Locatie ID</label>
+                <input type="number" name="locatieid" id="locatieid" required min="1" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
+            </div>
 
-        <button type="submit" class="bg-red-800 text-white px-4 py-2 rounded hover:bg-red-900">Toevoegen</button>
-    </form>
+            <div class="text-center">
+                <button type="submit" class="bg-red-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-800 transition">
+                    Evenement Aanmaken
+                </button>
+            </div>
+        </form>
+    </div>
 </main>
 
-<footer class="bg-gray-100 text-center text-sm p-4 mt-10">
-    &copy; 2025 Pâtisserie Gilis - Chaussée de Ninove 425, 1070 Anderlecht - Tel: 02 410 95 23
+<footer class="bg-gray-100 text-center text-sm text-gray-600 py-4">
+    &copy; 2025 Pâtisserie Gilis – Chaussée de Ninove 425, 1070 Anderlecht – Tel: 02 410 95 23
 </footer>
 
 </body>

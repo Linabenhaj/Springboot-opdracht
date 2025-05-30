@@ -2,36 +2,41 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Evenement Details</title>
+    <title>Evenement Details – Pâtisserie Gilis</title>
     <link rel="stylesheet" href="/css/tailwind.css">
 </head>
-<body class="bg-yellow-50 text-gray-800">
+<body class="bg-yellow-50 min-h-screen flex flex-col">
 
-<header class="bg-red-800 text-white p-4">
-    <nav class="flex gap-6 max-w-4xl mx-auto">
-        <a href="/" class="font-bold hover:underline">Pâtisserie Gilis</a>
-        <a href="/new" class="hover:underline">Nieuw evenement</a>
-        <a href="/about" class="hover:underline">Over ons</a>
-    </nav>
+<header class="bg-yellow-100 shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <a href="/" class="text-2xl font-extrabold text-red-800">Pâtisserie Gilis</a>
+        <nav class="flex space-x-8 text-lg font-medium">
+            <a href="/new" class="text-gray-800 hover:text-red-700 transition">Nieuw evenement</a>
+            <a href="/about" class="text-gray-800 hover:text-red-700 transition">Over ons</a>
+        </nav>
+    </div>
 </header>
 
-<main class="max-w-2xl mx-auto p-6 bg-white shadow-md mt-6 rounded">
-    <h1 class="text-2xl font-bold mb-4 text-red-800" th:text="${event.titel}">Titel</h1>
+<main class="flex-grow container mx-auto px-6 py-12">
+    <div class="bg-white p-8 shadow-xl rounded-xl max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold text-red-800 mb-8 text-center">Evenement Details</h1>
 
-    <p><strong>Omschrijving:</strong> <span th:text="${event.omschrijving}"></span></p>
-    <p><strong>Datum en tijd:</strong> <span th:text="${event.tijdstip}"></span></p>
-    <p><strong>Organisatie:</strong> <span th:text="${event.organisatie}"></span></p>
-    <p><strong>Contact:</strong> <span th:text="${event.email}"></span></p>
-    <p><strong>Locatie:</strong> <span th:text="${event.locatie.naam}"></span> - <span th:text="${event.locatie.adres}"></span></p>
-    <p><strong>Capaciteit:</strong> <span th:text="${event.locatie.capaciteit}"></span> personen</p>
+        <div class="space-y-4">
+            <p><span class="font-semibold">Titel:</span> <span class="text-gray-700">[Titel van event]</span></p>
+            <p><span class="font-semibold">Omschrijving:</span> <span class="text-gray-700">[Omschrijving van event]</span></p>
+            <p><span class="font-semibold">Organisatie:</span> <span class="text-gray-700">[Organisatie naam]</span></p>
+            <p><span class="font-semibold">E-mail:</span> <span class="text-gray-700">[email@example.com]</span></p>
+            <p><span class="font-semibold">Tijdstip:</span> <span class="text-gray-700">[2025-06-01T14:00]</span></p>
+        </div>
 
-    <div class="mt-6">
-        <a href="/" class="text-red-700 hover:underline">Terug naar overzicht</a>
+        <div class="mt-10 text-center">
+            <a href="/" class="inline-block bg-red-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-800 transition">Terug naar overzicht</a>
+        </div>
     </div>
 </main>
 
-<footer class="bg-gray-100 text-center text-sm p-4 mt-10">
-    &copy; 2025 Pâtisserie Gilis - Chaussée de Ninove 425, 1070 Anderlecht - Tel: 02 410 95 23
+<footer class="bg-gray-100 text-center text-sm text-gray-600 py-4">
+    &copy; 2025 Pâtisserie Gilis – Chaussée de Ninove 425, 1070 Anderlecht – Tel: 02 410 95 23
 </footer>
 
 </body>

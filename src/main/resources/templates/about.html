@@ -2,35 +2,47 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Over Pâtisserie Gilis</title>
+  <title>Over ons – Pâtisserie Gilis</title>
   <link rel="stylesheet" href="/css/tailwind.css">
 </head>
-<body class="bg-yellow-50 text-gray-800">
+<body class="bg-yellow-50 min-h-screen flex flex-col">
 
-<header class="bg-red-800 text-white p-4">
-  <nav class="flex gap-6 max-w-4xl mx-auto">
-    <a href="/" class="font-bold hover:underline">Pâtisserie Gilis</a>
-    <a href="/new" class="hover:underline">Nieuw evenement</a>
-    <a href="/about" class="hover:underline">Over ons</a>
-  </nav>
+<header class="bg-yellow-100 shadow-md">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
+    <a href="/" class="text-2xl font-extrabold text-red-800">Pâtisserie Gilis</a>
+    <nav class="flex space-x-8 text-lg font-medium">
+      <a href="/new" class="text-gray-800 hover:text-red-700 transition">Nieuw evenement</a>
+      <a href="/about" class="text-gray-800 hover:text-red-700 transition">Over ons</a>
+    </nav>
+  </div>
 </header>
 
-<main class="max-w-2xl mx-auto p-6 bg-white shadow-md mt-6 rounded">
-  <h1 class="text-2xl font-bold mb-4 text-red-800">Over Pâtisserie Gilis</h1>
+<main class="flex-grow container mx-auto px-6 py-12">
+  <div class="bg-white p-8 shadow-xl rounded-xl max-w-3xl mx-auto">
+    <h1 class="text-3xl font-bold text-red-800 mb-8 text-center">Over Pâtisserie Gilis</h1>
 
-  <p class="mb-2"><strong>Adres:</strong> Chaussée de Ninove 425, 1070 Anderlecht</p>
-  <p class="mb-2"><strong>Telefoon:</strong> 02 410 95 23</p>
-  <p class="mb-2"><strong>Email:</strong> gert.gilis5@telenet.be</p>
+    <p class="text-gray-700 mb-6 leading-relaxed">
+      Pâtisserie Gilis is een ambachtelijke bakkerij in hartje Anderlecht, gespecialiseerd in heerlijke patisserie,
+      versgebakken brood en unieke evenementen die de lokale gemeenschap samenbrengen. We geloven in de kracht
+      van samen genieten en organiseren daarom regelmatig buurtactiviteiten en workshops in samenwerking met lokale initiatieven.
+    </p>
 
-  <p class="mt-4 text-justify">
-    Pâtisserie Gilis is een gezellige buurtbakkerij in Anderlecht, gerund door Gert en Muriel.
-    Ze bieden een breed scala aan huisgemaakte producten, waaronder brood, gebak, gepersonaliseerde taarten en chocolade.
-    Hun specialiteiten zijn onder andere chocolade-éclairs en rijsttaarten.
-  </p>
+    <p class="text-gray-700 mb-6 leading-relaxed">
+      Kom langs voor een stukje taart, een gezellige koffie of neem deel aan een van onze evenementen en proef
+      de sfeer van verbondenheid. Wij verwelkomen u graag in onze bakkerij!
+    </p>
+
+    <div class="text-center mt-10">
+      <a href="/" class="inline-block bg-red-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-800 transition">
+        Terug naar Home
+      </a>
+    </div>
+  </div>
 </main>
 
-<footer class="bg-gray-100 text-center text-sm p-4 mt-10">
-  &copy; 2025 Pâtisserie Gilis - Chaussée de Ninove 425, 1070 Anderlecht - Tel: 02 410 95 23
+
+<footer class="bg-gray-100 text-center text-sm text-gray-600 py-4">
+  &copy; 2025 Pâtisserie Gilis – Chaussée de Ninove 425, 1070 Anderlecht – Tel: 02 410 95 23
 </footer>
 
 </body>
