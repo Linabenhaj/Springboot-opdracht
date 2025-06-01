@@ -1,2 +1,62 @@
-<h1 class="text-3xl font-bold text-orange-600">Welkom bij onze Bakkerij!</h1>
-<p class="text-gray-700">Bakkerij gillis!.</p>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Extra custom component styles */
+@layer base {
+    body {
+        @apply bg-yellow-50 min-h-screen flex flex-col font-sans;
+    }
+
+    h1 {
+        @apply text-4xl font-bold text-red-800 mb-8 text-center;
+    }
+}
+
+@layer components {
+    .nav-link {
+        @apply text-gray-800 hover:text-red-700 transition font-medium;
+    }
+
+    .btn-primary {
+        @apply inline-block bg-red-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-800 transition;
+    }
+
+    .card {
+        @apply bg-white p-8 shadow-xl rounded-xl;
+    }
+
+    .table-header {
+        @apply bg-yellow-100 text-left text-gray-700;
+    }
+
+    .table-cell {
+        @apply p-4 border-b;
+    }
+
+    .footer {
+        @apply bg-gray-100 text-center text-sm text-gray-600 py-4;
+    }
+}
+
+@layer utilities {
+    .container {
+        @apply max-w-7xl mx-auto px-6;
+    }
+
+    .main-content {
+        @apply flex-grow container py-12;
+    }
+
+    .overflow-table {
+        @apply overflow-x-auto;
+    }
+
+    .shadow-nav {
+        @apply shadow-md;
+    }
+
+    .flex-space {
+        @apply flex justify-between items-center py-4;
+    }
+}

@@ -22,7 +22,9 @@
     <h1 class="text-3xl font-bold mb-8 text-center text-green-900">Nieuw Evenement Aanmaken</h1>
 
     <div class="max-w-2xl mx-auto bg-white p-8 shadow-lg rounded-lg">
+        <!-- Hier koppel je het formulier aan het event-object -->
         <form method="POST" th:action="@{/events}" th:object="${event}" class="space-y-6">
+
             <div>
                 <label for="titel" class="block font-medium">Titel</label>
                 <input type="text" id="titel" th:field="*{titel}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required />

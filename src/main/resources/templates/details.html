@@ -1,42 +1,41 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Evenement Details – Pâtisserie Gilis</title>
-    <link rel="stylesheet" href="/css/tailwind.css">
+    <title>Evenement Details – Samen Anderlecht</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-yellow-50 min-h-screen flex flex-col">
+<body class="bg-gray-50 min-h-screen flex flex-col">
 
-<header class="bg-yellow-100 shadow-md">
+
+<header class="bg-green-800 text-white shadow-md">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
-        <a href="/" class="text-2xl font-extrabold text-red-800">Pâtisserie Gilis</a>
+        <a href="/" class="text-2xl font-extrabold">Samen Anderlecht</a>
         <nav class="flex space-x-8 text-lg font-medium">
-            <a href="/new" class="text-gray-800 hover:text-red-700 transition">Nieuw evenement</a>
-            <a href="/about" class="text-gray-800 hover:text-red-700 transition">Over ons</a>
+            <a href="/" class="hover:underline">Evenementen</a>
+            <a href="/new" class="hover:underline">Nieuw evenement</a>
+            <a href="/about" class="hover:underline">Over ons</a>
         </nav>
     </div>
 </header>
 
-<main class="flex-grow container mx-auto px-6 py-12">
-    <div class="bg-white p-8 shadow-xl rounded-xl max-w-2xl mx-auto">
-        <h1 class="text-3xl font-bold text-red-800 mb-8 text-center">Evenement Details</h1>
+<main class="container mx-auto px-6 py-12 flex-grow">
+    <h1 class="text-3xl font-bold mb-8 text-center text-green-900">Evenement Details</h1>
 
-        <div class="space-y-4">
-            <p><span class="font-semibold">Titel:</span> <span class="text-gray-700">[Titel van event]</span></p>
-            <p><span class="font-semibold">Omschrijving:</span> <span class="text-gray-700">[Omschrijving van event]</span></p>
-            <p><span class="font-semibold">Organisatie:</span> <span class="text-gray-700">[Organisatie naam]</span></p>
-            <p><span class="font-semibold">E-mail:</span> <span class="text-gray-700">[email@example.com]</span></p>
-            <p><span class="font-semibold">Tijdstip:</span> <span class="text-gray-700">[2025-06-01T14:00]</span></p>
-        </div>
-
-        <div class="mt-10 text-center">
-            <a href="/" class="inline-block bg-red-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-800 transition">Terug naar overzicht</a>
-        </div>
+    <div class="bg-white shadow-lg rounded-lg p-8 max-w-2xl mx-auto">
+        <p class="mb-4"><span class="font-semibold">Titel:</span> <span th:text="${event.titel}">Titel</span></p>
+        <p class="mb-4"><span class="font-semibold">Organisatie:</span> <span th:text="${event.organisatie}">Organisatie</span></p>
+        <p class="mb-4"><span class="font-semibold">Omschrijving:</span> <span th:text="${event.omschrijving}">Omschrijving</span></p>
+        <p class="mb-4"><span class="font-semibold">Email:</span> <span th:text="${event.email}">Email</span></p>
+        <p class="mb-4"><span class="font-semibold">Tijdstip:</span> <span th:text="${#temporals.format(event.tijdstip, 'dd-MM-yyyy HH:mm')}">Tijdstip</span></p>
+        <p class="mb-4"><span class="font-semibold">Locatie:</span>
+            <span th:text="${event.location != null ? event.location.naam : 'Geen locatie'}">Locatie</span>
+        </p>
     </div>
 </main>
 
-<footer class="bg-gray-100 text-center text-sm text-gray-600 py-4">
-    &copy; 2025 Pâtisserie Gilis – Chaussée de Ninove 425, 1070 Anderlecht – Tel: 02 410 95 23
+<footer class="bg-green-100 text-center py-4 mt-auto">
+    &copy; 2025 Samen Anderlecht – Dapperheidsplein 20, 1070 Anderlecht – Tel: 02 123 45 67
 </footer>
 
 </body>

@@ -2,48 +2,56 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Evenementenoverzicht – Pâtisserie Gilis</title>
-    <link rel="stylesheet" href="/css/tailwind.css">
+    <title>Evenementen Overzicht – Samen Anderlecht</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-yellow-50 min-h-screen flex flex-col">
+<body class="bg-gray-50 min-h-screen flex flex-col">
 
-<header class="bg-yellow-100 shadow-md">
+<header class="bg-green-800 text-white shadow-md">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
-        <a href="/" class="text-2xl font-extrabold text-red-800">Pâtisserie Gilis</a>
+        <a href="/" class="text-2xl font-extrabold">Samen Anderlecht</a>
         <nav class="flex space-x-8 text-lg font-medium">
-            <a href="/new" class="text-gray-800 hover:text-red-700 transition">Nieuw evenement</a>
-            <a href="/about" class="text-gray-800 hover:text-red-700 transition">Over ons</a>
+            <a href="/" class="hover:underline">Evenementen</a>
+            <a href="/new" class="hover:underline">Nieuw evenement</a>
+            <a href="/about" class="hover:underline">Over ons</a>
         </nav>
     </div>
 </header>
 
-<main class="flex-grow container mx-auto px-6 py-12">
-    <div class="bg-white p-8 shadow-xl rounded-xl">
-        <h1 class="text-4xl font-bold text-red-800 mb-8 text-center">Laatste 10 Evenementen</h1>
+<main class="container mx-auto px-6 py-12 flex-grow">
+    <h1 class="text-3xl font-bold mb-8 text-center text-green-900">Evenementen Overzicht</h1>
 
-        <div class="overflow-x-auto">
-            <table class="w-full table-auto border-collapse">
-                <thead class="bg-yellow-100">
-                <tr class="text-left text-gray-700">
-                    <th class="p-4 border-b">Titel</th>
-                    <th class="p-4 border-b">Organisatie</th>
-                    <th class="p-4 border-b text-center">Details</th>
-                </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-200">
-
-                </tbody>
-            </table>
-        </div>
-
-        <div class="mt-10 text-center">
-            <a href="/new" class="inline-block bg-red-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-800 transition">Nieuw evenement toevoegen</a>
-        </div>
+    <div class="overflow-x-auto shadow-lg rounded-lg bg-white p-6">
+        <table class="min-w-full table-auto border-collapse border border-gray-300">
+            <thead>
+            <tr class="bg-green-100">
+                <th class="px-4 py-2 border border-gray-300 text-left">Titel</th>
+                <th class="px-4 py-2 border border-gray-300 text-left">Organisatie</th>
+                <th class="px-4 py-2 border border-gray-300 text-left">Tijdstip</th>
+                <th class="px-4 py-2 border border-gray-300 text-left">Locatie</th>
+                <th class="px-4 py-2 border border-gray-300 text-left">Acties</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="event : ${events}" class="hover:bg-gray-100">
+                <td th:text="${event.titel}" class="px-4 py-2 border border-gray-300"></td>
+                <td th:text="${event.organisatie}" class="px-4 py-2 border border-gray-300"></td>
+                <td th:text="${#temporals.format(event.tijdstip, 'dd-MM-yyyy HH:mm')}" class="px-4 py-2 border border-gray-300"></td>
+                <td th:text="${event.location != null ? event.location.naam : 'Geen locatie'}" class="px-4 py-2 border border-gray-300"></td>
+                <td class="px-4 py-2 border border-gray-300 flex space-x-2">
+                    <a th:href="@{'/details/' + ${event.id}}" class="text-green-700 hover:underline">Bekijk</a>
+                    <form th:action="@{'/delete/' + ${event.id}}" method="post" onsubmit="return confirm('Weet je zeker dat je dit evenement wilt verwijderen?');">
+                        <button type="submit" class="text-red-600 hover:underline">Verwijder</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </main>
 
-<footer class="bg-gray-100 text-center text-sm text-gray-600 py-4">
-    &copy; 2025 Pâtisserie Gilis – Chaussée de Ninove 425, 1070 Anderlecht – Tel: 02 410 95 23
+<footer class="bg-green-100 text-center py-4 mt-auto">
+    &copy; 2025 Samen Anderlecht – Dapperheidsplein 20, 1070 Anderlecht – Tel: 02 123 45 67
 </footer>
 
 </body>

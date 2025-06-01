@@ -1,4 +1,3 @@
-// src/main/java/be/ehb/bakkerij/repository/EventRepository.java
 package be.ehb.bakkerij.repository;
 
 import be.ehb.bakkerij.model.Event;
@@ -7,5 +6,4 @@ import java.util.List;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> findTop10ByOrderByTijdstipDesc();
-
 }
