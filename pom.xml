@@ -16,7 +16,7 @@
     <artifactId>lin_benhaj</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>lin_benhaj</name>
-    <description>Website voor Samen Anderlecht NGO</description> 
+    <description>Website voor Solidair Anderlecht </description>
 
     <properties>
         <java.version>17</java.version>
