@@ -15,6 +15,7 @@ Screenshots:
 ![Nieuw evenement formulier]![Screenshot 2025-06-01 225815](https://github.com/user-attachments/assets/36daedbf-feb2-4cd8-8c29-5d09a6ec0ebb)
 
 ![Detailpagina evenement] ![Screenshot 2025-06-01 225942](https://github.com/user-attachments/assets/6b1b359e-f8fc-4ab4-9666-1789539a1a44)
-![About pagina]![Screenshot 2025-06-01 225918](https://github.com/user-attachments/assets/09f10a0b-06a7-493e-9a28-19ce857ce246)
+![About pagina] ![Screenshot 2025-06-01 231328](https://github.com/user-attachments/assets/95622b09-37f0-4c3d-bef3-81444ed6b442)
+
 
 
