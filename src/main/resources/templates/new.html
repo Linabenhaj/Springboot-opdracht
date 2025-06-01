@@ -27,7 +27,6 @@
                 <label for="titel" class="block font-medium">Titel</label>
                 <input type="text" id="titel" th:field="*{titel}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" required />
             </div>
-
             <div>
                 <label for="omschrijving" class="block font-medium">Omschrijving</label>
                 <textarea id="omschrijving" th:field="*{omschrijving}" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm" rows="4" required></textarea>
@@ -55,7 +54,6 @@
                     <option th:each="loc : ${locations}" th:value="${loc.id}" th:text="${loc.naam}"></option>
                 </select>
             </div>
-
             <div class="flex justify-center">
                 <button type="submit" class="bg-green-800 text-white px-6 py-3 rounded-lg hover:bg-green-900 transition">
                     Evenement Opslaan

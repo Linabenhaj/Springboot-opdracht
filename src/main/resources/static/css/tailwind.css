@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Extra custom component styles */
 @layer base {
     body {
         @apply bg-yellow-50 min-h-screen flex flex-col font-sans;
@@ -33,7 +32,6 @@
     .table-cell {
         @apply p-4 border-b;
     }
-
     .footer {
         @apply bg-gray-100 text-center text-sm text-gray-600 py-4;
     }

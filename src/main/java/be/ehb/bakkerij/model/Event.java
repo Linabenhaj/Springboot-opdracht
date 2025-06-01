@@ -20,8 +20,6 @@ public class Event {
     @JoinColumn(name = "location_id", nullable = false)
     private Location location;
 
-    // ✅ Getters en Setters
-
     public Long getId() {
         return id;
     }

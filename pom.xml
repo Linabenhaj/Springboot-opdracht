@@ -13,10 +13,10 @@
     </parent>
 
     <groupId>be.ehb</groupId>
-    <artifactId>bakkerij</artifactId>
+    <artifactId>lin_benhaj</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>bakkerij</name>
-    <description>bakkerij</description>
+    <name>lin_benhaj</name>
+    <description>Website voor Samen Anderlecht NGO</description> 
 
     <properties>
         <java.version>17</java.version>
@@ -51,10 +51,12 @@
             <artifactId>jakarta.validation-api</artifactId>
             <version>3.0.2</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
